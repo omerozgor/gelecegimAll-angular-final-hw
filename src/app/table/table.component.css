@@ -1,0 +1,9 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+  <div class="logo">
+    <img routerLink="" src=".\assets\mybloglogo.png" alt="Blog Logo">
+  </div>
+    <span class="spacer"></span>
+    <a routerLink="/users" [queryParams]="{page:1}" mat-button>Users</a>
+    <a routerLink="/posts" [queryParams]="{page:1}" mat-button>Posts</a>
+    <a routerLink="/categories" [queryParams]="{page:1}" mat-button>Categories</a>
+    <a routerLink="/comments" [queryParams]="{page:1}" mat-button>Comments</a>
+  </mat-toolbar>

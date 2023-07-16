@@ -1,0 +1,6 @@
+<app-table [headers]="tableHeaders" [data]="categories" [actions]="actions"
+[tableFields] = "tableFields" (newDeleteEvent)="deleteCategory($event)" 
+(newUpdateEvent)="goToUpdateCategory($event)" (newShowDetailsEvent)="showCategoryDetails($event)"></app-table>
+<div class="button-container">
+    <button mat-raised-button routerLink="/categories/add"> Add new Category</button>
+</div><br>

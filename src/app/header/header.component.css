@@ -1,0 +1,6 @@
+.logo img {
+    width: 90px; /* Adjust the width as per your preference */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer;
+    margin-top: 5px;
+  }

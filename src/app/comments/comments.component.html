@@ -1,0 +1,36 @@
+<mat-sidenav-container style="min-height: 50%;" >
+    <mat-sidenav #sidenav mode="side" opened>
+        <div>
+            <h3 style="text-align: center;">Use Filters</h3>
+            <mat-form-field>
+                <mat-label>User</mat-label>
+                <mat-select id="username" name="username" [(ngModel)]="filterUserId">
+                    <mat-option *ngFor="let user of users" [value]="user.userId">{{user.username}}</mat-option>
+                </mat-select>
+            </mat-form-field><br>
+           
+           <br><br>
+           <div class="button-container">
+            <button mat-raised-button color="accent" (click)="applyFilter()" >Apply Filter</button>
+           </div>
+           <div class="button-container">
+            <button mat-raised-button color="warn" (click)="clearFilters()" *ngIf="isFiltersExists()" >Clear Filters</button>
+           </div>
+            
+        </div>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <button mat-icon-button color="primary" (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        <app-table [headers]="tableHeaders" [data]="comments" [actions]="actions"
+        [tableFields] = "tableFields" (newDeleteEvent)="deleteComment($event)" 
+        (newUpdateEvent)="goToUpdateComment($event)" (newShowDetailsEvent)="showCommentDetails($event)"
+        (paramsChangeEvent)="paramsChange($event)"></app-table>
+        <div class="button-container">
+            <button mat-raised-button routerLink="/comments/add"> Add new Comment</button>
+        </div><br>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

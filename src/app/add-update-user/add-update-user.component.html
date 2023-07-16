@@ -1,0 +1,26 @@
+<div class="container" >
+    <!-- Your table component code here -->
+    
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input type="text" id="username"  [(ngModel)]="username" name="username" matInput required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" [email]="true" matInput required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Creation Date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="creationDate" required>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    
+    
+    <mat-checkbox id="isActive" name="isActive" [(ngModel)]="isActive" >Active?</mat-checkbox>
+    <br>
+    <button mat-raised-button color="primary" *ngIf="userId" (click)="updateUser()">Update User</button>
+    <button mat-raised-button color="primary" *ngIf="userId === undefined" (click)="addUser()">Add User</button>
+</div>
+

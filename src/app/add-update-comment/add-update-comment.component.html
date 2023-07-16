@@ -1,0 +1,34 @@
+<div class="container">
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <mat-select id="username" name="username" [(ngModel)]="userId" required>
+            <mat-option *ngFor="let user of users" [value]="user.userId">{{user.username}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Post Title</mat-label>
+        <mat-select id="postTitle" name="postTitle" [(ngModel)]="postId" required>
+            <mat-option *ngFor="let post of posts" [value]="post.postId">{{post.title}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label>Comment</mat-label>
+        <input type="textArea" id="comment" [(ngModel)]="commentText" name="comment" matInput required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Creation Date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="creationDate" required>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    
+    
+    <mat-checkbox id="isConfirmed" name="isConfirmed" [(ngModel)]="isConfirmed" >Confirmed?</mat-checkbox>
+    <br>
+    <button mat-raised-button color="primary" *ngIf="commentId" (click)="updateComment()">Update Comment</button>
+    <button mat-raised-button color="primary" *ngIf="commentId === undefined" (click)="addComment()">Add Comment</button>
+
+</div>

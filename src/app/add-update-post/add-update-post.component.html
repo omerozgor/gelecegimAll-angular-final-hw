@@ -1,0 +1,56 @@
+<div class="form-container">
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <mat-label>Username</mat-label>
+        <mat-select id="username" name="username" [(ngModel)]="userId" required>
+          <mat-option *ngFor="let user of users" [value]="user.userId">{{user.username}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <mat-form-field class="form-field">
+        <mat-label>Category</mat-label>
+        <mat-select id="category" name="category" [(ngModel)]="categoryId" required>
+          <mat-option *ngFor="let category of categories" [value]="category.categoryId">{{category.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <mat-label>Title</mat-label>
+        <input type="text" id="title" [(ngModel)]="title" name="title" matInput required>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label>Creation Date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="creationDate" required>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    </div>
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <mat-label>Content</mat-label>
+        <textarea id="content" [(ngModel)]="content" name="content" 
+        cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5" matInput required></textarea>
+      </mat-form-field>
+    </div>
+  
+    <div class="form-row">
+      <mat-form-field class="form-field">
+        <mat-label>View Count</mat-label>
+        <input type="number" id="viewCount" [(ngModel)]="viewCount" name="viewCount" matInput required>
+      </mat-form-field>
+  
+      <mat-checkbox id="isPublished" name="isPublished" [(ngModel)]="isPublished">Published?</mat-checkbox>
+    </div>
+  
+    <div class="form-actions">
+      <button mat-raised-button color="primary" *ngIf="postId" (click)="updatePost()">Update Post</button>
+      <button mat-raised-button color="primary" *ngIf="postId === undefined" (click)="addPost()">Add Post</button>
+    </div>
+  </div>
+  

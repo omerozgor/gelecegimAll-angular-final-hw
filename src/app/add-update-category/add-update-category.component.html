@@ -1,0 +1,21 @@
+<div class="container">
+    <mat-form-field>
+        <mat-label>Category Name</mat-label>
+        <input type="text" id="name" [(ngModel)]="name" name="name" matInput required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Creation Date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="creationDate" required>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br>
+
+
+
+    <button mat-raised-button color="primary" *ngIf="categoryId" (click)="updateCategory()">Update
+        Category</button>
+    <button mat-raised-button color="primary" *ngIf="categoryId === undefined" (click)="addCategory()"
+        >Add Category</button>
+
+</div>

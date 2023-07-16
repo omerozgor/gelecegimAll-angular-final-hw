@@ -1,0 +1,6 @@
+<app-table [headers]="tableHeaders" [data]="users" [tableFields]="tableFields" (newDeleteEvent)="deleteUser($event)"
+    (newUpdateEvent)="goToUpdateUser($event)" [actions]="actions"></app-table>
+<br>
+<div class="button-container">
+    <button mat-raised-button routerLink="/users/add"> Add new User</button>
+</div>

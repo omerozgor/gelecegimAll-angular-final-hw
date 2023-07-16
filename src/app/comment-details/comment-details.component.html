@@ -1,0 +1,31 @@
+<div class="container" *ngIf="comment">
+  <h1 style="text-align: center;">Comment Details</h1>
+  <mat-list>
+    <mat-list-item>
+      <span matListItemTitle>Comment</span>
+      <span matListItemLine>{{comment.comment}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <span matListItemTitle>Title of the post this comment belongs to</span>
+      <span matListItemLine>{{postTitle}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <span matListItemTitle>Username</span>
+      <span matListItemLine>{{ username }}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <span matListItemTitle>Creation Date</span>
+      <span matListItemLine>{{ comment.creationDate }}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <span matListItemTitle>Confirmed?</span>
+      <span matListItemLine>{{ comment.isConfirmed }}</span>
+    </mat-list-item>
+  </mat-list>
+  </div>
+
+  

@@ -1,0 +1,53 @@
+<div class="container" *ngIf="post">
+  <h1 style="text-align: center;">Post Details</h1>
+  <mat-list>
+    <mat-list-item>
+      <span matListItemTitle>Title</span>
+      <span matListItemLine>{{post.title}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    
+    <mat-expansion-panel (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+  Content
+  </mat-panel-title>
+  <mat-panel-description>
+  {{panelOpenState ? '' : 'Click to see content of this post'}}
+  </mat-panel-description>
+  </mat-expansion-panel-header>
+  <p>{{post!.content}}</p>
+  </mat-expansion-panel>
+  
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <span matListItemTitle>Username</span>
+      <span matListItemLine>{{username}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <span matListItemTitle>Category</span>
+      <span matListItemLine>{{category}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <span matListItemTitle>View Count</span>
+      <span matListItemLine>{{post.viewCount}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <span matListItemTitle>Creation Date</span>
+      <span matListItemLine>{{post.creationDate | date}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <span matListItemTitle>Published</span>
+      <span matListItemLine>{{post.isPublished}}</span>
+    </mat-list-item>
+  </mat-list>
+  
+  <app-table *ngIf="comments" [headers]="['Comment','Username','Creation Date']" [data]="comments"
+   [tableFields]="['comment','username','creationDate']" caption="Comments for this post"></app-table>
+</div>
+

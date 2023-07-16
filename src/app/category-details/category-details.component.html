@@ -1,0 +1,27 @@
+<div class="container" *ngIf="category">
+  <h1 style="text-align: center;">Category Details</h1>
+  <mat-list>
+    <mat-list-item>
+      <span matListItemTitle>Category Name</span>
+      <span matListItemLine>{{category!.name}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <span matListItemTitle>Creation Date</span>
+      <span matListItemLine>{{category!.creationDate | date}}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <span matListItemTitle>Total post count for this category</span>
+      <span matListItemLine>{{ postCount }}</span>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <button mat-stroked-button color="link" routerLink="/posts" [queryParams]="{categoryId:categoryId}">Show posts for this category</button>
+    </mat-list-item>
+    
+  </mat-list>
+  
+
+  <!-- Display other post details as needed -->
+</div>
